@@ -40,15 +40,15 @@ cd get_next_line
 int	main(void)
 {
 	int	fd;
-	char	*cunt;
+	char	*line;
  	int i = 0;
 
 	fd = open("poem", O_RDONLY);
-	while ((cunt = get_next_line(fd)))
+	while ((line = get_next_line(fd)))
 	{
 
-		printf("%s", cunt);
-		free(cunt);
+		printf("%s", line);
+		free(line);
 	}
 }
 ```
@@ -61,13 +61,34 @@ This example uses a while to read the full "poem", if you only want to read a si
 
 ## BONUS PART
 
-```bash
-make bonus
-```
 
 ## Example 
 ```c
+#include "get_next_line.h"
+#include "stdio.h"
 
+int     main(void)
+{
+        int     fd;
+        int     fd2;
+        char    *line;
+        char    *line2;
+
+        fd = open("poem", O_RDONLY);
+        fd2 = open("get_next_line_bonus.c", O_RDONLY);
+        line = get_next_line(fd);
+        line2 = get_next_line(fd2);
+        printf("%s", line);
+        printf("%s", line2);
+        free(line);
+}
 ```
+Expected output:
+The program will print the first line of the "poem" file located in the project folder, and then will print the first line of the "get_next_line_bonus.c" file.
+It will look like this: 
+```
+Gnarly/* ************************************************************************** */
+```
+
 
 
