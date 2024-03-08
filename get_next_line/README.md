@@ -36,6 +36,7 @@ cd get_next_line
 
 ```c
 #include "get_next_line.h"
+#include "stdio.h"
 
 int	main(void)
 {
